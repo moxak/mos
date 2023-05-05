@@ -1,6 +1,5 @@
-// main.rs
-#![no_std]
-#![no_main]
+#![no_std] // Rustの標準ライブラリにリンクしない
+#![no_main] // すべてのRustレベルのエントリポイントを無効にする
 
 use core::panic::PanicInfo;
 
@@ -8,13 +7,13 @@ use core::panic::PanicInfo;
 #[panic_handler]
 fn panic(_info: &PanicInfo) -> ! {
     // PanicInfo: パニックが発生したファイルと行、およびオプションでパニックメッセージ
-    // この関数は戻り値を取るべきではないので、“never” 型(!)を返すことで発散する関数となります。
-    // 今のところこの関数でできることは多くないので、無限にループするだけです。
     loop {}
 }
 
-#[no_mangle]
+#[no_mangle] // この関数の名前修飾をしない
 pub extern "C" fn _start() -> ! {
+    // リンカはデフォルトで、`_start`という名前の関数を探すので
+    // この関数がエントリポイントとなる
     loop {}
 }
 
