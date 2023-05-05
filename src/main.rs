@@ -17,7 +17,7 @@ pub extern "C" fn _start() -> ! {
     // リンカはデフォルトで、`_start`という名前の関数を探すので
     // この関数がエントリポイントとなる
     
-    let vga_buffer = 0xb80000 as *mut u8;
+    let vga_buffer = 0xb8000 as *mut u8;
     
     for (i, &byte) in HELLO.iter().enumerate() {
         unsafe {
