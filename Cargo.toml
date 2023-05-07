@@ -3,6 +3,10 @@ name = "mos"
 version = "0.1.0"
 edition = "2018"
 
+[[test]]
+name = "should_panic"
+harness = false
+
 [package.metadata.bootimage]
 test-args = [
   "-device", "isa-debug-exit,iobase=0xf4,iosize=0x04", "-serial", "stdio",
