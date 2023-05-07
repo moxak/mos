@@ -16,7 +16,8 @@ static HELLO: &[u8] = b"Hello, World!";
 
 #[no_mangle] // この関数の名前修飾をしない
 pub extern "C" fn _start() -> ! {
-    vga_buffer::print_something();
+    println!("Hello World{}","!");  
+
     loop {}
 }
 
