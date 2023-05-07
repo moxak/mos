@@ -7,8 +7,8 @@
 rustup target add thumbv7em-none-eabihf 
 
 # activate Rsut nightly release 
-rustup toolchain add nightly-2022-04-01 --profile minimal
-rustup override set nightly-2020-04-01
+rustup toolchain add nightly-2020-07-15 --profile minimal
+rustup override set nightly-2020-07-15
 rustc --version # check `-nightly` exists on tail of version
 rustup component add rust-src # install component to re-compile core, compiler-builins library
 rustup component add llvm-tools-preview # install for building bootloader
