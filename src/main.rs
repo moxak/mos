@@ -7,8 +7,9 @@ mod vga_buffer;
 
 // panic_handler attribute はパニックが発生したときにコンパイラが呼び出す関数
 #[panic_handler]
-fn panic(_info: &PanicInfo) -> ! {
+fn panic(info: &PanicInfo) -> ! {
     // PanicInfo: パニックが発生したファイルと行、およびオプションでパニックメッセージ
+    println!("{}", info);
     loop {}
 }
 
@@ -17,7 +18,7 @@ static HELLO: &[u8] = b"Hello, World!";
 #[no_mangle] // この関数の名前修飾をしない
 pub extern "C" fn _start() -> ! {
     println!("Hello World{}","!");  
-
+    panic!("Some panic message");
     loop {}
 }
 
